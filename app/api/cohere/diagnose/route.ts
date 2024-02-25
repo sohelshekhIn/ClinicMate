@@ -22,12 +22,9 @@ type QaData = {
 };
 
 export async function POST(request: NextRequest) {
-  const data = await request.text();
-  const res = await JSON.parse(data);
-  console.log(res);
-  //   const res = await request.json();
+  const res = await request.json();
 
-  const formattedPatientString = Object.entries(res.preliminaryDiagnosis)
+  const formattedPatientString = Object.entries(res.patientData)
     .map(([key, value]) => formatKeyValuePair(key, value))
     .join("");
 

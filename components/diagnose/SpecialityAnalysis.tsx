@@ -31,10 +31,10 @@ export default function SpecialityAnalysis({ email }: { email: string }) {
 
   const [qaData, setQaData] = useState<QaData>({
     questionData: [
-      {
-        question: "",
-        answer: "",
-      },
+      //   {
+      // question: "",
+      // answer: "",
+      //   },
     ],
     answerData: [""],
   });
@@ -47,10 +47,10 @@ export default function SpecialityAnalysis({ email }: { email: string }) {
   const [submitBtnClicked, setSubmitBtnClicked] = useState(false);
 
   const [fetchRunner, setFetchRunner] = useState(false);
-  const [starter, setStarter] = useState(false);
+  //   const [starter, setStarter] = useState(false);
 
   useEffect(() => {
-    console.log(qaData.questionData.length, submitBtnClicked);
+    // console.log(qaData.questionData.length > 1 && !submitBtnClicked);
     if (qaData.questionData.length != 0 && !submitBtnClicked) {
       return;
     }
@@ -109,10 +109,11 @@ export default function SpecialityAnalysis({ email }: { email: string }) {
     };
 
     fetchQnAData();
-  }, [fetchRunner, qaData, submitBtnClicked, starter]);
+  }, [qaData, submitBtnClicked, patientData, fetchRunner]);
 
   useEffect(() => {
-    setStarter(true);
+    setFetchRunner(!fetchRunner);
+    // setStarter(true);
     const fetchData = async () => {
       const data = await fetch(
         `/api/cohere/initial-analysis?email=${email}`

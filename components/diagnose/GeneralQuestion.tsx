@@ -104,7 +104,7 @@ export default function GeneralQuestion() {
     }).then((res) => res.json());
 
     if (data.status === "success") {
-      router.push(`/clinic-journey/qna/1`);
+      router.push(`/clinic-journey/qna`);
     }
   }
 

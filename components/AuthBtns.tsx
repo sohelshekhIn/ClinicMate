@@ -18,7 +18,7 @@ const LogInBtn = () => {
     <Button
       onClick={() =>
         signIn("google", {
-          callbackUrl: "/clini-jouney",
+          callbackUrl: "/clinic-jouney",
         })
       }
     >
